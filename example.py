@@ -37,10 +37,15 @@ while True:
 
     cv2.imshow("Demo", frame)
 
+    img_counter = 0
     if cv2.waitKey(1) == 27:
         break
     if cv2.waitKey(1) == 32:
-        break
+        img_name = "open_frame_{}.png".format(img_counter)
+        cv2.imwrite(img_name, frame)
+        print("{} written!".format(img_name))
+        img_counter += 1
+
    
 webcam.release()
 cv2.destroyAllWindows()
