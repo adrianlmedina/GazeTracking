@@ -121,6 +121,23 @@ class GazeTracking(object):
         """Returns the main frame with pupils highlighted"""
         frame = self.frame.copy()
 
+        dot_color = (0, 0, 255) #red
+
+        # top points
+        cv2.circle(frame, (150, 100), 5, dot_color, -1)
+        cv2.circle(frame, (640, 100), 5, dot_color, -1)
+        cv2.circle(frame, (1130, 100), 5, dot_color, -1)
+
+        # middle points
+        cv2.circle(frame, (150, 360), 5, dot_color, -1)
+        cv2.circle(frame, (640, 360), 5, dot_color, -1)
+        cv2.circle(frame, (1130, 360), 5, dot_color, -1)
+
+        #bottom points
+        cv2.circle(frame, (150, 620), 5, dot_color, -1)
+        cv2.circle(frame, (640, 620), 5, dot_color, -1)
+        cv2.circle(frame, (1130, 620), 5, dot_color, -1)
+
         if self.pupils_located:
             color = (0, 255, 0)
             x_left, y_left = self.pupil_left_coords()
