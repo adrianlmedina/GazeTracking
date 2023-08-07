@@ -28,7 +28,6 @@ locations = [
     (1130, 620, 1920, 880),
 ] 
 
-
 while True: #img_counter < max_images:
     # We get a new frame from the webcam
     _, frame = webcam.read()
@@ -66,6 +65,7 @@ while True: #img_counter < max_images:
         im.save(f"filename_specific_{specific_counter + 1}.png")
         print("Screenshot {} taken from specific location!".format(specific_counter + 1))
         specific_counter += 1
+        
     elif key == 32 and fullscreen_counter < max_images:
         _, full_frame = webcam.read()  # Capture the entire frame from the webcam
         im = Image.fromarray(cv2.cvtColor(full_frame, cv2.COLOR_BGR2RGB))
