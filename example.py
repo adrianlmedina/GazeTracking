@@ -103,8 +103,7 @@ while True: #img_counter < max_images:
             specific_counter += 1
 
     elif key == 32 and fullscreen_counter < max_images:
-        _, full_frame = webcam.read()  # Capture the entire frame from the webcam
-        im = Image.fromarray(cv2.cvtColor(full_frame, cv2.COLOR_BGR2RGB))
+        im = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) # Capture the entire frame from the webcam
         im.save(f"filename_fullscreen_{fullscreen_counter + 1}.png")
         print("Full-screen screenshot {} taken!".format(fullscreen_counter + 1))
         fullscreen_counter += 1
