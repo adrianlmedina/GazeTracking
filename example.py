@@ -55,12 +55,41 @@ while True: #img_counter < max_images:
     cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
 
     cv2.imshow("Camera Feed", frame)
-
     key = cv2.waitKey(1)
+
+    if left_pupil == (442,434) and right_pupil == (640,432):
+            bbox = locations[4 % len(locations)]
+            a = 'true'
+    elif left_pupil == (493,418) and right_pupil == (668,419):
+            bbox = locations[1 % len(locations)]
+            a = 'true'
+    elif left_pupil == (484,415) and right_pupil == (663,415):
+            bbox = locations[2 % len(locations)]
+            a = 'true'
+    elif left_pupil == (452,412) and right_pupil == (647,411):
+            bbox = locations[3 % len(locations)]
+            a = 'true'
+    elif left_pupil == (474,434) and right_pupil == (666,432):
+            bbox = locations[5 % len(locations)]
+            a = 'true'
+    elif left_pupil == (496,436) and right_pupil == (673,433):
+            bbox = locations[6 % len(locations)]
+            a = 'true'
+    elif left_pupil == (461,437) and right_pupil == (657,434):
+            bbox = locations[9 % len(locations)]
+            a = 'true'
+    elif left_pupil == (441,428) and right_pupil == (639,426):
+            bbox = locations[8 % len(locations)]
+            a = 'true'
+    elif left_pupil == (426,433) and right_pupil == (625,431):
+            bbox = locations[7 % len(locations)]
+            a = 'true'
+    else :
+            a ='false'
+
     if key == 27:  # Press 'Esc' key to exit the program
         break
-    elif key == ord('a') and specific_counter < max_images:
-        bbox = locations[specific_counter % len(locations)]
+    elif a == 'true' and specific_counter < max_images:
         im = ImageGrab.grab(bbox=bbox)
         im.save(f"filename_specific_{specific_counter + 1}.png")
         print("Screenshot {} taken from specific location!".format(specific_counter + 1))
@@ -101,7 +130,6 @@ while True: #img_counter < max_images:
         #        cv2.waitKey(0)
             cv2.destroyAllWindows()
             specific_counter += 1
-
     elif key == 32 and fullscreen_counter < max_images:
         im = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) # Capture the entire frame from the webcam
         im.save(f"filename_fullscreen_{fullscreen_counter + 1}.png")
