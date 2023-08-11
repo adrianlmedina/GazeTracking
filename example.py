@@ -130,7 +130,7 @@ while True: #img_counter < max_images:
             plt.title('Salient region')
         #    cv2.imshow("Segmented", segmented_map)
         #    plt.show()
-            plt.savefig('binarized plot.png')
+            plt.savefig(f'binarized_plot_{specific_counter + 1} .png')
         #    cv2.waitKey(0)
             # cv2.destroyAllWindows()
             specific_counter += 1
